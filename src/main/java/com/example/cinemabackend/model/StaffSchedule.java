@@ -1,34 +1,34 @@
 package com.example.cinemabackend.model;
 
 public class StaffSchedule {
-    private int StaffId;
-    private String Time;
-    private String Task;
+    private int staffId;
+    private String time;
+    private String task;
 
-    public StaffSchedule(int StaffId, String Time, String Task) {
-        this.StaffId = StaffId;
-        this.Time = Time;
-        this.Task = Task;
+    public StaffSchedule(int staffId, String time, String task) {
+        this.staffId = staffId;
+        this.time = time;
+        this.task = task;
     }
 
-    public int getStaffId() {return StaffId;}
+    public int getStaffId() {return staffId;}
 
-    public void setStaffId(int StaffId) {this.StaffId = StaffId;}
+    public void setStaffId(int StaffId) {this.staffId = staffId;}
 
-    public String getTime() {return Time;}
+    public String getTime() {return time;}
 
-    public void setTime(String Time) {this.Time = Time;}
+    public void setTime(String time) {this.time = time;}
 
-    public String getTask() {return Task;}
+    public String getTask() {return task;}
 
-    public void setTask(String Task) {this.Task = Task;}
+    public void setTask(String Task) {this.task = task;}
 
     @Override
     public String toString() {
         return "StaffSchedule{" +
-                "StaffId=" + StaffId +
-                ", Time='" + Time + '\'' +
-                ", Task='" + Task + '\'' +
+                "StaffId=" + staffId +
+                ", Time='" + time + '\'' +
+                ", Task='" + task + '\'' +
                 '}';
     }
 }
