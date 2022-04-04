@@ -15,9 +15,11 @@ public class CinemaBackendApplication {
         //SpringBootApplication.run(CinemaBackendApplication.class, args);
        // CustomerService customerService = context.getBean(CustomerService.class);
         //StaffService staffService = context.getBean(StaffService.class);
+        //MoviesService moviesservice = context.getBean(MoviesService.class);
 
         //System.out.println(customerService.getCustomerById("1").toString());
         //System.out.println(staffService.getStaffById("1").toString());
+        //System.out.println(moviesService.getMoviesById("1").toString());
 
 
     }
