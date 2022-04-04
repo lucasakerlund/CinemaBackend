@@ -4,7 +4,9 @@ import com.example.cinemabackend.model.Movies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class MoviesDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
