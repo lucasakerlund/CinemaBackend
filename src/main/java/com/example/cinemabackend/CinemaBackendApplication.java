@@ -10,14 +10,13 @@ public class CinemaBackendApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(CinemaBackendApplication.class, args);
+
+
+        //SpringBootApplication.run(CinemaBackendApplication.class, args);
+       // CustomerService customerService = context.getBean(CustomerService.class);
+
+        //System.out.println(customerService.getCustomerById("1").toString());
+
+
     }
-
-
-    ApplicationContext context = SpringBootApplication.run(SpringBootApplication.class, args);
-    CustomerService customerService = context.getBean(CustomerService.class);
-
-    System.out.println(CustomerService.getCustomerBycustomer_id("1").toString());
-
-
-
 }
