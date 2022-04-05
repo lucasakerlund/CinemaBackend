@@ -27,15 +27,15 @@ public class StaffScheduleDAO {
     }
     public StaffSchedule getStaffScheduleById (String staff_id){
         String query = "SELECT * FROM staff_schedule WHERE staff_id =?";
-        StaffSchedule staffSchedule = jdbcTemplate.queryForObject(query, new StaffScheduleMapper());
+        StaffSchedule staffSchedule = jdbcTemplate.queryForObject(query, new staffScheduleMapper());
         return staffSchedule;
     }
     private class staffScheduleMapper implements RowMapper <StaffSchedule> {
         @Override
         public StaffSchedule mapRow(ResultSet rs, int rowNum) throws SQLException {
-            StaffSchedule sts = new StaffSchedule(rs.getInt(staff_id),
-                    rs.getString(time),
-                    rs.getString(task));
+            StaffSchedule sts = new StaffSchedule(rs.getInt("staff_id"),
+                    rs.getString("time"),
+                    rs.getString("task"));
 
             return sts;
         }

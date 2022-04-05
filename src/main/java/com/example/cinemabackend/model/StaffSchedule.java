@@ -31,4 +31,7 @@ public class StaffSchedule {
                 ", Task='" + task + '\'' +
                 '}';
     }
+
+    public void insertStaffSchedule(String time, String task) {
+    }
 }

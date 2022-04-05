@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @Repository
@@ -31,11 +32,13 @@ public class ScheduleDao {
     private class ScheduleMapper implements RowMapper<Schedule> {
 
         @Override
-        public Schedule mapRow(Resultset rs, int rowNum) throws SQLException {
-            Schedule sch = new Schedule(rs.getInt(movie_id),
-                    rs.getString(date),
-                    rs.getString(time));
+        public Schedule mapRow(ResultSet rs, int rowNum) throws SQLException {
+            Schedule sch = new Schedule(rs.getInt("movie_id"),
+                    rs.getString("date"),
+                    rs.getString("time"));
             return sch;
+
+
         }
     }
 }
