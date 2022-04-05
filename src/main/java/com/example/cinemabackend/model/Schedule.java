@@ -15,6 +15,9 @@ public class Schedule {
         this.salon = salon;
     }
 
+    public Schedule(int movie_id, String date, String time) {
+    }
+
     public int getScheduleId() {return scheduleId;}
 
     public void setScheduleId(int scheduleId) {this.scheduleId = scheduleId;}

@@ -6,6 +6,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 @Repository
 public class MoviesDao {
     @Autowired
@@ -27,9 +30,14 @@ public class MoviesDao {
         return movies;
     }
     private class MoviesMapper implements RowMapper<Movies> {
-        Movies mov = new Movies(rs.getInt(movie_id),
-                rs.getString(name);
 
-        return mov;
+
+        @Override
+        public Movies mapRow(ResultSet rs, int rowNum) throws SQLException {
+            Movies mov = new Movies(rs.getInt("movie_id"),
+                    rs.getString("name"),0); //fix ageRestriction later
+            return mov;
+        }
+
     }
 }

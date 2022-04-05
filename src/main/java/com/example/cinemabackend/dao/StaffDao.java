@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @Repository
@@ -32,10 +33,10 @@ public class StaffDao {
     private class StaffMapper implements RowMapper<Staff> {
         @Override
         public Staff mapRow(ResultSet rs, int rowNum) throws SQLException {
-            Staff sta = new Staff(rs.getInt(staff_id),
-                    rs.getString(name),
-                    rs.getString(address),
-                    rs.getString(position));
+            Staff sta = new Staff(rs.getInt("staff_id"),
+                    rs.getString("name"),
+                    rs.getString("address"),
+                    rs.getString("position"),0,""); // fix salary and position later
 
             return sta;
 

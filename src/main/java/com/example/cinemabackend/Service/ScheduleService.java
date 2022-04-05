@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class ScheduleService {
     @Autowired
     ScheduleDao scheduleDao;
-    public void Insert Schedule(Schedule schedule)  {
+    public void InsertSchedule(Schedule schedule)  {
         scheduleDao.insertSchedule(schedule.getDate(),schedule.getTime());
     }
 
