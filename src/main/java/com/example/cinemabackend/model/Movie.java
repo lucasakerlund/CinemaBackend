@@ -1,11 +1,15 @@
 package com.example.cinemabackend.model;
 
-public class Movies {
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class Movie {
     private int movieId;
     private String name;
     private int ageRestriction;
 
-    public Movies (int movieId, String name, int ageRestriction) {
+    public Movie(@JsonProperty("movie_id") int movieId,
+                 @JsonProperty("name") String name,
+                 @JsonProperty("age_restriction") int ageRestriction) {
         this.movieId = movieId;
         this.name = name;
         this.ageRestriction = ageRestriction;

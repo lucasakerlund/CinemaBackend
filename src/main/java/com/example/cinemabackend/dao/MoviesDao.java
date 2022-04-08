@@ -1,6 +1,6 @@
 package com.example.cinemabackend.dao;
 
-import com.example.cinemabackend.model.Movies;
+import com.example.cinemabackend.model.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -24,17 +24,17 @@ public class MoviesDao {
 
         }
     }
-    public Movies getMoviesById(String movie_id){
+    public Movie getMoviesById(String movie_id){
         String query = "SELECT * FROM movies WHERE movie_id=?";
-        Movies movies = jdbcTemplate.queryForObject(query,new MoviesMapper());
+        Movie movies = jdbcTemplate.queryForObject(query,new MoviesMapper());
         return movies;
     }
-    private class MoviesMapper implements RowMapper<Movies> {
+    private class MoviesMapper implements RowMapper<Movie> {
 
 
         @Override
-        public Movies mapRow(ResultSet rs, int rowNum) throws SQLException {
-            Movies mov = new Movies(rs.getInt("movie_id"),
+        public Movie mapRow(ResultSet rs, int rowNum) throws SQLException {
+            Movie mov = new Movie(rs.getInt("movie_id"),
                     rs.getString("name"),0); //fix ageRestriction later
             return mov;
         }

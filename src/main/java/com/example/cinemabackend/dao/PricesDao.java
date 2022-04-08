@@ -1,10 +1,12 @@
 package com.example.cinemabackend.dao;
 
+import com.example.cinemabackend.model.Price;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @Repository
@@ -21,20 +23,13 @@ public class PricesDao {
             System.out.println(result + "Prices added to database");
         }
     }
-    public Prices getPricesById(String product){
+    public Price getPricesById(String product){
         String query = "SELECT * FROM prices WHERE product =?";
-        Prices prices = jdbcTemplate.queryForObject(query,new PricesMapper())
-                return prices;
-    }
-
-    private class PricesMapper implements RowMapper<Prices> {
-
-        @Override
-        public Prices mapRpw(ResultSet rs, int rowNum) throws SQLException {
-            Prices pri = new Prices(rs.getInt(product),
-                    rs.getString(product));
-            return pri;
-        }
+        Price price = jdbcTemplate.queryForObject(query,(rs, rowNum) -> {
+            Price p = new Price(rs.getString("product"), rs.getInt("price"));
+            return p;
+        });
+        return price;
     }
 
 

@@ -1,5 +1,7 @@
 package com.example.cinemabackend.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Staff {
     private int staffId;
     private String name;
@@ -8,7 +10,12 @@ public class Staff {
     private int salary;
     private String position;
 
-    public Staff (int staffId, String name, String securityNumber, String address, int salary, String position) {
+    public Staff(@JsonProperty("staff_id") int staffId,
+                 @JsonProperty("name") String name,
+                 @JsonProperty("security_number") String securityNumber,
+                 @JsonProperty("address") String address,
+                 @JsonProperty("salary") int salary,
+                 @JsonProperty("position") String position) {
         this.staffId = staffId;
         this.name = name;
         this.securityNumber = securityNumber;

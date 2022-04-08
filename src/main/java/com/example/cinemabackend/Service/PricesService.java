@@ -1,6 +1,7 @@
-package com.example.cinemabackend.Service;
+package com.example.cinemabackend.service;
 
 import com.example.cinemabackend.dao.PricesDao;
+import com.example.cinemabackend.model.Price;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,11 +10,11 @@ public class PricesService {
 
     @Autowired
     PricesDao pricesDao;
-    public void InsertPrices(Prices prices){
-        pricesDao.InsertPrices(prices.getProduct());
+    public void InsertPrices(Price prices){
+        pricesDao.insertPrices(prices.getProduct());
     }
-    public Prices getPricesById(String product){
-        Prices prices = pricesDao.getPricesById(product);
+    public Price getPricesById(String product){
+        Price prices = pricesDao.getPricesById(product);
         return prices;
     }
 }

@@ -1,11 +1,15 @@
 package com.example.cinemabackend.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Customer {
     private int customer_id;
     private String name;
     private String mail;
 
-    public Customer(int customer_id,String name,String mail){
+    public Customer(@JsonProperty("customer_id") int customer_id,
+                    @JsonProperty("name") String name,
+                    @JsonProperty("mail") String mail){
 
         this.customer_id = customer_id;
         this.name = name;

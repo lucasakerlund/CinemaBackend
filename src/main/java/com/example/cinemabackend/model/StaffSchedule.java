@@ -1,11 +1,15 @@
 package com.example.cinemabackend.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class StaffSchedule {
     private int staffId;
     private String time;
     private String task;
 
-    public StaffSchedule(int staffId, String time, String task) {
+    public StaffSchedule(@JsonProperty("staff_id") int staffId,
+                         @JsonProperty("time") String time,
+                         @JsonProperty("task") String task) {
         this.staffId = staffId;
         this.time = time;
         this.task = task;

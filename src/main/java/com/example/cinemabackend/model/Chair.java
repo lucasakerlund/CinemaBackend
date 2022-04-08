@@ -1,10 +1,13 @@
 package com.example.cinemabackend.model;
 
-public class Chairs {
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class Chair {
     private int chairNumber;
     private int salon;
 
-    public Chairs (int chairNumber, int Salon){
+    public Chair(@JsonProperty("chair_number") int chairNumber,
+                 @JsonProperty("salon_id") int salon){
         this.chairNumber = chairNumber;
         this.salon = salon;
     }

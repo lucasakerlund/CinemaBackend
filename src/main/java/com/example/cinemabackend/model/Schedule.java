@@ -1,5 +1,7 @@
 package com.example.cinemabackend.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Schedule {
     private int scheduleId;
     private String date;
@@ -7,7 +9,11 @@ public class Schedule {
     private int movieId;
     private int salon;
 
-    public Schedule (int scheduleId, String date, String time, int movieId, int salon) {
+    public Schedule(@JsonProperty("schedule_id") int scheduleId,
+                    @JsonProperty("date") String date,
+                    @JsonProperty("time") String time,
+                    @JsonProperty("movie_id") int movieId,
+                    @JsonProperty("salon_id") int salon) {
         this.scheduleId = scheduleId;
         this.date = date;
         this.time = time;

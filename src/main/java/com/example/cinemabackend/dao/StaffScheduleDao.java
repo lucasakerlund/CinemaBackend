@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @Repository
-public class StaffScheduleDAO {
+public class StaffScheduleDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 

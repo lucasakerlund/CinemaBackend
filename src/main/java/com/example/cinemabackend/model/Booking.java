@@ -1,6 +1,8 @@
 package com.example.cinemabackend.model;
 
-public class Bookings {
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class Booking {
     private int bookingId;
     private int customerId;
     private int adults;
@@ -10,7 +12,14 @@ public class Bookings {
     private int scheduleId;
     private int salonId;
 
-    public Bookings(int bookingId, int adults, int children, int scheduleId, int salonId) {
+    public Booking(@JsonProperty("booking_id") int bookingId,
+                   @JsonProperty("customer_id") int customerId,
+                   @JsonProperty("adults") int adults,
+                   @JsonProperty("children") int children,
+                   @JsonProperty("seniors") int seniors,
+                   @JsonProperty("students") int students,
+                   @JsonProperty("schedule_id") int scheduleId,
+                   @JsonProperty("salon_id") int salonId) {
         this.bookingId = bookingId;
         this.customerId = customerId;
         this.adults = adults;

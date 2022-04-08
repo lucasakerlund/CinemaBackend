@@ -1,9 +1,11 @@
 package com.example.cinemabackend.model;
 
-public class Salons {
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class Salon {
     private int salonId;
 
-    public Salons(int SalonId) {
+    public Salon(@JsonProperty("salon_id") int SalonId) {
         this.salonId = SalonId;
     }
 

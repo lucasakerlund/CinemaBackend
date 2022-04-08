@@ -1,10 +1,13 @@
 package com.example.cinemabackend.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Price {
     private String product;
     private int price;
 
-    public Price(String product, int price) {
+    public Price(@JsonProperty("product") String product,
+                 @JsonProperty("price") int price) {
         this.product = product;
         this.price = price;
     }
