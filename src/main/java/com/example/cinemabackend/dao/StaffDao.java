@@ -36,7 +36,9 @@ public class StaffDao {
             Staff sta = new Staff(rs.getInt("staff_id"),
                     rs.getString("name"),
                     rs.getString("address"),
-                    rs.getString("position"),0,""); // fix salary and position later
+                    rs.getString("position"),
+                    rs.getInt("salary"),
+                    rs.getString("position"));
 
             return sta;
 

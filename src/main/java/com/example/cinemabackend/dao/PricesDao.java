@@ -28,7 +28,7 @@ public class PricesDao {
         Price price = jdbcTemplate.queryForObject(query,(rs, rowNum) -> {
             Price p = new Price(rs.getString("product"), rs.getInt("price"));
             return p;
-        });
+        }, product);
         return price;
     }
 

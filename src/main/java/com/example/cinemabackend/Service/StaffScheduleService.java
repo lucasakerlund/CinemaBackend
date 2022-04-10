@@ -13,9 +13,7 @@ public class StaffScheduleService {
     public void insertStaffSchedule(StaffSchedule staffSchedule) {
         staffSchedule.insertStaffSchedule(staffSchedule.getTime(), staffSchedule.getTask());
     }
-    public StaffSchedule getStaffScheduleById(String staff_id) {
-
-        StaffSchedule staffSchedule = staffScheduleDAO.getStaffScheduleById(staff_id);
-        return staffSchedule;
+    public StaffSchedule getStaffScheduleById(int staff_id, String time) {
+        return staffScheduleDAO.getStaffTask(staff_id, time);
     }
 }

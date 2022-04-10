@@ -25,9 +25,9 @@ public class StaffScheduleDao {
 
         }
     }
-    public StaffSchedule getStaffScheduleById (String staff_id){
-        String query = "SELECT * FROM staff_schedule WHERE staff_id =?";
-        StaffSchedule staffSchedule = jdbcTemplate.queryForObject(query, new staffScheduleMapper());
+    public StaffSchedule getStaffTask(int staff_id, String time){
+        String query = "SELECT * FROM staff_schedule WHERE staff_id =? AND time=?";
+        StaffSchedule staffSchedule = jdbcTemplate.queryForObject(query, new staffScheduleMapper(), staff_id, time);
         return staffSchedule;
     }
     private class staffScheduleMapper implements RowMapper <StaffSchedule> {

@@ -5,29 +5,26 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Booking {
     private int bookingId;
     private int customerId;
+    private int scheduleId;
     private int adults;
     private int children;
     private int seniors;
     private int students;
-    private int scheduleId;
-    private int salonId;
 
     public Booking(@JsonProperty("booking_id") int bookingId,
                    @JsonProperty("customer_id") int customerId,
+                   @JsonProperty("schedule_id") int scheduleId,
                    @JsonProperty("adults") int adults,
                    @JsonProperty("children") int children,
                    @JsonProperty("seniors") int seniors,
-                   @JsonProperty("students") int students,
-                   @JsonProperty("schedule_id") int scheduleId,
-                   @JsonProperty("salon_id") int salonId) {
+                   @JsonProperty("students") int students) {
         this.bookingId = bookingId;
         this.customerId = customerId;
+        this.scheduleId = scheduleId;
         this.adults = adults;
         this.children = children;
         this.seniors = seniors;
         this.students = students;
-        this.scheduleId = scheduleId;
-        this.salonId = salonId;
     }
 
     public int getBookingId() {return bookingId;}
@@ -37,6 +34,14 @@ public class Booking {
     public int getCustomerId() {return customerId;}
 
     public void setCustomerId(int customerId) {this.customerId = customerId;}
+
+    public int getScheduleId() {
+        return scheduleId;
+    }
+
+    public void setScheduleId(int scheduleId) {
+        this.scheduleId = scheduleId;
+    }
 
     public int getAdults() {return adults;}
 
@@ -54,25 +59,4 @@ public class Booking {
 
     public void setChildren(int children) {this.children = children;}
 
-    public int getScheduleId() {return scheduleId;}
-
-    public void setScheduleId(int scheduleId) {this.scheduleId = scheduleId;}
-
-    public int getSalonId() {return scheduleId;}
-
-    public void setSalonId(int salonId) {this.salonId = salonId;}
-
-    @Override
-    public String toString() {
-        return "Bookings{" +
-                "bookingId=" + bookingId +
-                ", customerId=" + customerId +
-                ", adults=" + adults +
-                ", children=" + children +
-                ", seniors=" + seniors +
-                ", students=" + students +
-                ", scheduleId=" + scheduleId +
-                ", salonId=" + salonId +
-                '}';
-    }
 }

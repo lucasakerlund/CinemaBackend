@@ -1,4 +1,4 @@
-package com.example.cinemabackend.Service;
+package com.example.cinemabackend.service;
 
 
 import com.example.cinemabackend.dao.CustomerDao;
@@ -11,13 +11,18 @@ public class CustomerService {
 
     @Autowired
     CustomerDao customerDao;
-    public void InsertCustomer(Customer customer){
-        customerDao.insertCustomer(customer.getName(),customer.getMail());
+
+    public void insertCustomer(String name, String securityNumber, String mail){
+        customerDao.insertCustomer(name, securityNumber, mail);
 
     }
-    public Customer getCustomerById(String customer_id){
-        Customer customer = customerDao.getCustomerById(customer_id);
+    public Customer getCustomerBySecurityNumber(String securityNumber){
+        Customer customer = customerDao.getCustomerBySecurityNumber(securityNumber);
         return customer;
+    }
+
+    public boolean isSecurityNumberAvailable(String securityNumber){
+        return customerDao.isSecurityNumberAvailable(securityNumber);
     }
 
 }

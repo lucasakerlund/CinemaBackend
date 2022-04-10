@@ -1,6 +1,6 @@
 package com.example.cinemabackend;
 
-import com.example.cinemabackend.Service.CustomerService;
+import com.example.cinemabackend.service.CustomerService;
 import org.apache.catalina.core.ApplicationContext;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
