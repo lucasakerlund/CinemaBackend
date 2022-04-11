@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CustomerService {
 
+    public Object retrieveCustomer;
     @Autowired
     CustomerDao customerDao;
 
@@ -25,4 +26,9 @@ public class CustomerService {
         return customerDao.isSecurityNumberAvailable(securityNumber);
     }
 
+
+
+    public Object retrieveCustomer(String anyString, String anyString1) {
+        return retrieveCustomer;
+    }
 }
