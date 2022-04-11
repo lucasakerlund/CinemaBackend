@@ -4,10 +4,13 @@ import com.example.cinemabackend.model.Staff;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Repository
 public class StaffDao {
@@ -15,7 +18,7 @@ public class StaffDao {
     private JdbcTemplate jdbcTemplate;
 
     public void insertStaff(String name,String address,String position) {
-        String query = "INSERT INTO staff(name,address,position)VALUES)(?,?,?)";
+        String query = "INSERT INTO staffs(name,address,position)VALUES)(?,?,?)";
 
         int result = jdbcTemplate.update(query,name,address,position);
 
@@ -25,8 +28,25 @@ public class StaffDao {
         }
 
     }
-    public Staff getStaffById(String staff_id){
-        String query = "SELECT * FROM staff WHERE staff_id =?";
+
+    public List<Staff> getStaffs(){
+        String query = "SELECT * FROM staffs";
+
+        SqlRowSet rowSet = jdbcTemplate.queryForRowSet(query);
+        List<Staff> output = new ArrayList<>();
+        while(rowSet.next()){
+            output.add(new Staff(rowSet.getInt("staff_id"),
+                    rowSet.getString("name"),
+                    rowSet.getString("security_number"),
+                    rowSet.getString("address"),
+                    rowSet.getInt("salary"),
+                    rowSet.getString("position")));
+        }
+        return output;
+    }
+
+    public Staff getStaffById(int staffId){
+        String query = "SELECT * FROM staffs WHERE staff_id =?";
         Staff staff = jdbcTemplate.queryForObject(query,new StaffMapper());
         return staff;
     }
