@@ -13,14 +13,19 @@ public class StaffScheduleService {
     @Autowired
     StaffScheduleDao staffScheduleDAO;
 
-    public void insertStaffSchedule(StaffSchedule staffSchedule) {
-        staffSchedule.insertStaffSchedule(staffSchedule.getTime(), staffSchedule.getTask());
+    public void insertStaffSchedule(int staffId, String date, String time, String task) {
+        staffScheduleDAO.insertStaffSchedule(staffId, date, time, task);
     }
-    public StaffSchedule getStaffScheduleById(int staffId, String time) {
-        return staffScheduleDAO.getStaffTask(staffId, time);
+
+    public List<StaffSchedule> getStaffSchedules(){
+        return staffScheduleDAO.getStaffSchedules();
     }
 
     public List<StaffSchedule> getStaffSchedulesByStaffId(int staffId){
         return staffScheduleDAO.getStaffSchedulesByStaffId(staffId);
+    }
+
+    public StaffSchedule getStaffScheduleById(int staffId, String date, String time) {
+        return staffScheduleDAO.getStaffTask(staffId, date, time);
     }
 }

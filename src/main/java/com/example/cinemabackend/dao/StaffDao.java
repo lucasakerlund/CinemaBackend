@@ -38,6 +38,7 @@ public class StaffDao {
             output.add(new Staff(rowSet.getInt("staff_id"),
                     rowSet.getString("name"),
                     rowSet.getString("security_number"),
+                    rowSet.getString("mail"),
                     rowSet.getString("address"),
                     rowSet.getInt("salary"),
                     rowSet.getString("position")));
@@ -45,9 +46,22 @@ public class StaffDao {
         return output;
     }
 
+    public Staff getStaffBySecurityNumber(String securityNumber){
+        String query = "SELECT * FROM staffs WHERE security_number =?";
+        return jdbcTemplate.queryForObject(query, (rs, rowNum) -> {
+            return new Staff(rs.getInt("staff_id"),
+                    rs.getString("name"),
+                    rs.getString("security_number"),
+                    rs.getString("mail"),
+                    rs.getString("address"),
+                    rs.getInt("salary"),
+                    rs.getString("position"));
+        }, securityNumber);
+    }
+
     public Staff getStaffById(int staffId){
         String query = "SELECT * FROM staffs WHERE staff_id =?";
-        Staff staff = jdbcTemplate.queryForObject(query,new StaffMapper());
+        Staff staff = jdbcTemplate.queryForObject(query,new StaffMapper(), staffId);
         return staff;
     }
     private class StaffMapper implements RowMapper<Staff> {
@@ -55,8 +69,9 @@ public class StaffDao {
         public Staff mapRow(ResultSet rs, int rowNum) throws SQLException {
             Staff sta = new Staff(rs.getInt("staff_id"),
                     rs.getString("name"),
+                    rs.getString("security_number"),
+                    rs.getString("mail"),
                     rs.getString("address"),
-                    rs.getString("position"),
                     rs.getInt("salary"),
                     rs.getString("position"));
 

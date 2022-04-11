@@ -2,10 +2,7 @@ package com.example.cinemabackend.api;
 
 import com.example.cinemabackend.model.StaffSchedule;
 import com.example.cinemabackend.service.StaffScheduleService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,14 +16,24 @@ public class StaffScheduleController {
         this.service = service;
     }
 
-    @GetMapping("{id}/{time}")
-    public StaffSchedule getStaffSchedule(@PathVariable("id") int staffId, @PathVariable("time") String time){
-        return service.getStaffScheduleById(staffId, time);
+    @GetMapping("{id}/{date}/{time}")
+    public StaffSchedule getStaffSchedule(@PathVariable("id") int staffId, @PathVariable("date") String date, @PathVariable("time") String time){
+        return service.getStaffScheduleById(staffId, date, time);
+    }
+
+    @GetMapping
+    public List<StaffSchedule> getStaffSchedules(){
+        return service.getStaffSchedules();
     }
 
     @GetMapping("{id}")
     public List<StaffSchedule> getStaffSchedulesByStaffId(@PathVariable("id") int staffId){
         return service.getStaffSchedulesByStaffId(staffId);
+    }
+
+    @PostMapping
+    public void createTask(@RequestBody StaffSchedule staffSchedule){
+        service.insertStaffSchedule(staffSchedule.getStaffId(), staffSchedule.getDate(), staffSchedule.getTime(), staffSchedule.getTask());
     }
 
 }

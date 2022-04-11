@@ -21,6 +21,11 @@ public class StaffController {
         return service.getStaffById(staffId);
     }
 
+    @GetMapping("security_number/{id}")
+    public Staff getStaffBySecurityNumber(@PathVariable("id") String securityNumber){
+        return service.getStaffBySecurityNumber(securityNumber);
+    }
+
     @GetMapping
     public List<Staff> getStaffs(){
         return service.getStaffs();

@@ -6,6 +6,7 @@ public class Staff {
     private int staffId;
     private String name;
     private String securityNumber;
+    private String mail;
     private String address;
     private int salary;
     private String position;
@@ -13,12 +14,14 @@ public class Staff {
     public Staff(@JsonProperty("staff_id") int staffId,
                  @JsonProperty("name") String name,
                  @JsonProperty("security_number") String securityNumber,
+                 @JsonProperty("mail") String mail,
                  @JsonProperty("address") String address,
                  @JsonProperty("salary") int salary,
                  @JsonProperty("position") String position) {
         this.staffId = staffId;
         this.name = name;
         this.securityNumber = securityNumber;
+        this.mail = mail;
         this.address = address;
         this.salary = salary;
         this.position = position;
@@ -35,6 +38,14 @@ public class Staff {
     public String getSecurityNumber() {return securityNumber;}
 
     public void setSecurityNumber(String SecurityNumber) {this.securityNumber = SecurityNumber;}
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
 
     public String getAddress() {return address;}
 
