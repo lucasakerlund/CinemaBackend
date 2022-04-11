@@ -21,6 +21,10 @@ public class StaffService {
         return staff;
     }
 
+    public Staff getStaffBySecurityNumber(String securityNumber){
+        return staffDao.getStaffBySecurityNumber(securityNumber);
+    }
+
     public List<Staff> getStaffs(){
         return staffDao.getStaffs();
     }
