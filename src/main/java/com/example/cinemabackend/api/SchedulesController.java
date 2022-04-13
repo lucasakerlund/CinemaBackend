@@ -3,10 +3,8 @@ package com.example.cinemabackend.api;
 import com.example.cinemabackend.model.Movie;
 import com.example.cinemabackend.model.Schedule;
 import com.example.cinemabackend.service.ScheduleService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.json.JSONObject;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,6 +31,11 @@ public class SchedulesController {
     @GetMapping
     public List<Schedule> getSchedules(){
         return service.getSchedules();
+    }
+
+    @PostMapping
+    public void createSchedule(@RequestBody Schedule schedule){
+        service.createSchedule(schedule.getDate(), schedule.getTime(), schedule.getMovieId(), schedule.getSalon());
     }
 
 }

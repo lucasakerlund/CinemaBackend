@@ -19,10 +19,10 @@ public class ScheduleDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public void insertSchedule(String date, String time) {
-        String query = "Insert INTO schedule(date,time)VALUES(?,?)";
+    public void insertSchedule(String date, String time, int movieId, int salonId) {
+        String query = "Insert INTO schedule(date,time,movie_id,salon_id)VALUES(?,?,?,?)";
 
-        int result = jdbcTemplate.update(query,date,time);
+        int result = jdbcTemplate.update(query,date,time, movieId, salonId);
 
         if(result > 0) {
             System.out.println(result + "schedule added to database");

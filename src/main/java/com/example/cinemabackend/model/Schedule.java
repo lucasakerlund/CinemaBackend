@@ -3,6 +3,7 @@ package com.example.cinemabackend.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Schedule {
+
     private int scheduleId;
     private String date;
     private String time;
@@ -41,14 +42,4 @@ public class Schedule {
 
     public void setSalon(int salon) {this.salon = salon;}
 
-    @Override
-    public String toString() {
-        return "Schedule{" +
-                "scheduleId=" + scheduleId +
-                ", date='" + date + '\'' +
-                ", time='" + time + '\'' +
-                ", movieId=" + movieId +
-                ", salon=" + salon +
-                '}';
-    }
 }
