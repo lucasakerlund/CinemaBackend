@@ -30,4 +30,9 @@ public class SchedulesController {
         return service.getSchedulesByMovie(movieId);
     }
 
+    @GetMapping
+    public List<Schedule> getSchedules(){
+        return service.getSchedules();
+    }
+
 }

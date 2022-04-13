@@ -27,7 +27,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
         private MockMvc mockMvc;
         @MockBean
         private com.example.cinemabackend.service.CustomerService customerService;
-        Customer mockCustomer = new Customer("1","?","1111","?");
+        Customer mockCustomer = new Customer(1,"?","1111","?");
 
         String CustomerJson = "{\"customer_id\":\"name\",\"securityNumber\"mail\"}";
 

@@ -48,15 +48,19 @@ public class StaffDao {
 
     public Staff getStaffBySecurityNumber(String securityNumber){
         String query = "SELECT * FROM staffs WHERE security_number =?";
-        return jdbcTemplate.queryForObject(query, (rs, rowNum) -> {
-            return new Staff(rs.getInt("staff_id"),
-                    rs.getString("name"),
-                    rs.getString("security_number"),
-                    rs.getString("mail"),
-                    rs.getString("address"),
-                    rs.getInt("salary"),
-                    rs.getString("position"));
-        }, securityNumber);
+        try {
+            return jdbcTemplate.queryForObject(query, (rs, rowNum) -> {
+                return new Staff(rs.getInt("staff_id"),
+                        rs.getString("name"),
+                        rs.getString("security_number"),
+                        rs.getString("mail"),
+                        rs.getString("address"),
+                        rs.getInt("salary"),
+                        rs.getString("position"));
+            }, securityNumber);
+        }catch(Exception e) {
+            return null;
+        }
     }
 
     public Staff getStaffById(int staffId){

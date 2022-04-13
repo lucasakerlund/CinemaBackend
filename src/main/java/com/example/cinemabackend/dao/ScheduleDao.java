@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class ScheduleDao {
@@ -29,8 +30,12 @@ public class ScheduleDao {
     }
 
     public List<Schedule> getSchedulesByMovie(int movieId){
-        String query = "SELECT * FROM schedule WHERE movie_id =?";
-        SqlRowSet rowSet = jdbcTemplate.queryForRowSet(query, movieId);
+        return getSchedules().stream().filter(s -> s.getMovieId() == movieId).collect(Collectors.toList());
+    }
+
+    public List<Schedule> getSchedules(){
+        String query = "SELECT * from schedule";
+        SqlRowSet rowSet = jdbcTemplate.queryForRowSet(query);
         List<Schedule> output = new ArrayList<>();
         while(rowSet.next()){
             output.add(new Schedule(rowSet.getInt("schedule_id"),

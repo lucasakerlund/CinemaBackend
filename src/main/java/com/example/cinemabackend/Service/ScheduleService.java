@@ -25,4 +25,9 @@ public class ScheduleService {
     public List<Schedule> getSchedulesByMovie(int movieId){
         return scheduleDao.getSchedulesByMovie(movieId);
     }
+
+    public List<Schedule> getSchedules(){
+        return scheduleDao.getSchedules();
+    }
+
 }
