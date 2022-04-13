@@ -5,6 +5,8 @@ import com.example.cinemabackend.model.Price;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PricesService {
 
@@ -17,4 +19,9 @@ public class PricesService {
         Price prices = pricesDao.getPricesById(product);
         return prices;
     }
+
+    public List<Price> getPrices(){
+        return pricesDao.getPrices();
+    }
+
 }
