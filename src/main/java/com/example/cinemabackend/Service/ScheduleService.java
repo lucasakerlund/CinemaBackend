@@ -14,10 +14,6 @@ public class ScheduleService {
     @Autowired
     ScheduleDao scheduleDao;
 
-    public void InsertSchedule(Schedule schedule)  {
-        scheduleDao.insertSchedule(schedule.getDate(),schedule.getTime());
-    }
-
     public Schedule getScheduleById(int scheduleId) {
         return scheduleDao.getScheduleById(scheduleId);
     }
@@ -28,6 +24,10 @@ public class ScheduleService {
 
     public List<Schedule> getSchedules(){
         return scheduleDao.getSchedules();
+    }
+
+    public void createSchedule(String date, String time, int movieId, int salonId){
+        scheduleDao.insertSchedule(date, time, movieId, salonId);
     }
 
 }

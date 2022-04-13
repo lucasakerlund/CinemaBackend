@@ -24,7 +24,6 @@ public class SalonDao {
         while(rowSet.next()){
             output.add(new Salon(rowSet.getInt("salon_id")));
         }
-        System.out.println(new JSONObject(output.get(0)));
         return output;
     }
 
